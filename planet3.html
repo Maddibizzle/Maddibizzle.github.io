@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+  <title>Lost in Space</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    /* Remove all page margins */
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    /* Fill the entire screen */
+    .container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      color: white;
+      text-align: center;
+    }
+
+    .container img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .bottom-left {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+    }
+
+    .top-left {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+    }
+
+    .top-right {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+    }
+
+    .bottom-right {
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+    }
+
+    .centered {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* Link styling */
+    a {
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Keep text above the image */
+    .bottom-left,
+    .bottom-right,
+    .centered,
+    .top-left,
+    .top-right {
+      z-index: 1;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <img
+      src="https://hips.hearstapps.com/hmg-prod/images/41b27e96-7193-4b86-967f-f08da0536630.jpeg?crop=0.976xw:1xh;0.012xw,0xh&resize=1800:*"
+      alt="Space"
+    >
+
+
+
+    <a href="planet4.html">
+      <div class="bottom-right">Keep going....?</div>
+    </a>
+
+    <div class="centered">There must be something at the end of this hall right?.</div>
+
+  </div>
+
+</body>
