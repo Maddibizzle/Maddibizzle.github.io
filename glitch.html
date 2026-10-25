@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,6 +19,7 @@
             background-color: lightpink;
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         li a {
@@ -36,11 +38,78 @@
             line-height: 1.5;
         }
 
-        img {
-            max-width: 30%;
-            height: auto;
-            margin: 10px;
-            vertical-align: middle;
+        /* Slideshow container */
+        .slideshow {
+            position: relative;
+            max-width: 600px;
+            height: 400px;
+            margin: 30px auto;
+            overflow: hidden;
+            background-color: white;
+        }
+
+        /* Make every image the same size */
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        /* Previous and Next buttons */
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            padding: 12px 16px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: black;
+        }
+
+        /* Dots below the images */
+        .dots {
+            margin: 15px;
+        }
+
+        .dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            margin: 5px;
+            background-color: lightgray;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background-color: hotpink;
+        }
+
+        /* Make slideshow fit smaller screens */
+        @media (max-width: 650px) {
+            .slideshow {
+                width: 90%;
+                height: 300px;
+            }
         }
     </style>
 </head>
@@ -64,9 +133,56 @@
     adding color, which is the opposite of what I have on my body.
 </p>
 
-<img src="Monarachbutterfly2222.jpg" alt="butterfly">
-<img src="Deathmothswag.jpg" alt="deathmoth">
-<img src="bumble-bee2424242424.png" alt="bumblebee">
+<!-- Slideshow -->
+<div class="slideshow">
+
+    <img class="slide active"
+         src="Monarachbutterfly2222.jpg"
+         alt="Butterfly glitch art">
+
+    <img class="slide"
+         src="Deathmothswag.jpg"
+         alt="Death moth glitch art">
+
+    <img class="slide"
+         src="bumble-bee2424242424.png"
+         alt="Bumblebee glitch art">
+
+    <button class="prev" onclick="changeSlide(-1)"
+            aria-label="Previous image">&#10094;</button>
+
+    <button class="next" onclick="changeSlide(1)"
+            aria-label="Next image">&#10095;</button>
+
+</div>
+
+<!-- Navigation dots -->
+<div class="dots">
+    <span class="dot active" onclick="showSlide(0)"></span>
+    <span class="dot" onclick="showSlide(1)"></span>
+    <span class="dot" onclick="showSlide(2)"></span>
+</div>
+
+<script>
+    let currentSlide = 0;
+
+    const slides = document.querySelectorAll(".slide");
+    const dots = document.querySelectorAll(".dot");
+
+    function showSlide(index) {
+        slides[currentSlide].classList.remove("active");
+        dots[currentSlide].classList.remove("active");
+
+        currentSlide = (index + slides.length) % slides.length;
+
+        slides[currentSlide].classList.add("active");
+        dots[currentSlide].classList.add("active");
+    }
+
+    function changeSlide(direction) {
+        showSlide(currentSlide + direction);
+    }
+</script>
 
 </body>
 </html>
