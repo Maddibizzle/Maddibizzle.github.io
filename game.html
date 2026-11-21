@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MBraun Portfolio</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: white;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color: lightpink;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        li a {
+            display: block;
+            color: black;
+            padding: 15px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            background-color: pink;
+        }
+
+        p {
+            margin: 20px;
+            line-height: 1.5;
+        }
+
+        img {
+            max-width: 80%;
+            height: auto;
+            cursor: pointer;
+        }
+
+        .page {
+            display: none;
+            padding: 20px;
+        }
+
+        .active {
+            display: block;
+        }
+
+        #game canvas {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+            height: auto;
+        }
+
+        #game {
+            background-color: #190532;
+            color: white;
+            min-height: 650px;
+        }
+
+        #game h1 {
+            color: pink;
+        }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+
+</head>
+
+<body>
+
+<ul>
+    <li><a href="#" onclick="showPage('home'); return false;">Home</a></li>
+    <li><a href="mashup.html">Meme Mashup</a></li>
+    <li><a href="glitch.html">Glitch Art</a></li>
+    <li><a href="#" onclick="showPage('netart'); return false;">Net Art</a></li>
+    <li><a href="minecraft.html">3D Minecraft</a></li>
+    <li><a href="3Dprint.html">3D Art</a></li>
+    <li><a href="P5.html">P5.js Art Work</a></li>
+    <li><a href="#" onclick="showPage('game'); return false;">Rainbow Catcher Game</a></li>
+</ul>
+
+
+<div id="home" class="page active">
+
+    <h1>MBraun Portfolio</h1>
+
+    <p>Welcome to my digital art portfolio!</p>
+
+  
+
+</div>
+
+
+<div id="netart" class="page">
+
+    <h1>Net Art</h1>
+
+    <p>
+        In my website I wanted to do a choose your own adventure
+        of being in a spaceship and trying to get home.
+    </p>
+
+    <a href="https://maddibizzle.github.io/netart/"
+       target="_blank"
+       rel="noopener noreferrer">
+
+        <img src="website.jpg" alt="Website">
+
+    </a>
+
+</div>
+
+
+<div id="game" class="page">
+
+    <h1>🌈 Rainbow Catcher 🌈</h1>
+
+    <p>Move your mouse over the targets to catch them!</p>
+
+    <p>Try to get to the final level and win!</p>
+
+    <div id="game-container"></div>
+
+</div>
+
+<script>
+
+function showPage(pageName) {
+
+    var pages = document.getElementsByClassName("page");
+
+    for (var i = 0; i < pages.length; i++) {
+        pages[i].classList.remove("active");
+    }
+
+    document.getElementById(pageName).classList.add("active");
+
+}
+
+</script>
+
+<script src="Game.js"></script>
+
+</body>
+</html>
